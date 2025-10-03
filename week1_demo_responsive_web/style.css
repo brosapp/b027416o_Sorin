@@ -16,6 +16,7 @@
 
 /* Reset */
 
+
 * {
     margin: 0;
     padding: 0;
@@ -27,22 +28,19 @@ body {
     height: 100%;
 }
 
-/*  Body & Layout */
+/* Body & Layout */
 
 body {
     display: grid;
     grid-template-rows: auto 1fr;
-    /* navbar + main content */
     background: var(--bg-color);
     color: var(--text-color);
     font-family: Arial, sans-serif;
     line-height: 1.6;
     overflow: scroll;
-
-
 }
 
-/* Navbar (Desktop) */
+/* Navbar */
 
 .navbar {
     background: var(--nav-bg);
@@ -70,8 +68,8 @@ body {
     font-weight: bold;
     padding: 0.5em 1em;
     border-radius: 25px;
-    border: 1px solid rgba(148, 163, 184, 0.5);
-    background: linear-gradient(135deg, rgba(148, 163, 184, 0.1), rgba(148, 163, 184, 0.3));
+    border: 1px solid var(--text-color);
+    background: linear-gradient(135deg, var(--card-bg), var(--nav-bg));
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: transform 0.2s, background 0.3s;
@@ -81,6 +79,7 @@ body {
 
 .nav-links a:hover {
     transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--nav-bg), var(--card-bg));
 }
 
 /* Theme Toggle Button */
@@ -107,7 +106,7 @@ body {
     transform: scale(1.1);
 }
 
-/*  Grid Container (Desktop) */
+/* Grid Layout */
 
 .grid-container {
     display: grid;
@@ -116,7 +115,6 @@ body {
     gap: 1rem;
     padding: 1rem;
     height: calc(100vh - 3.5rem);
-
 }
 
 .card {
@@ -130,13 +128,8 @@ body {
     overflow: hidden;
 }
 
-.card h2 {
-    text-align: left;
-    margin-bottom: 0.5rem;
-}
-
+.card h2,
 .card p {
-    text-align: left;
     margin-bottom: 0.5rem;
 }
 
@@ -148,20 +141,15 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Mobile Layout (Preferred) */
+/*  Mobile Layout */
 
 @media (max-width: 768px) {
-
-    /*desktop bar for fold 796px */
     body {
         display: block;
         overflow: auto;
-        /* scroll on mobile */
         padding-bottom: 6rem;
-        /* space for bottom nav */
     }
 
-    /* Navbar at bottom, vertical layout */
     .navbar {
         position: fixed;
         bottom: 0;
@@ -184,14 +172,12 @@ body {
     .nav-links a {
         width: 100%;
         border-radius: 0;
-        /* edge to edge */
         padding: 0.75rem 0;
         text-align: center;
-        transition: background 0.2s;
     }
 
     .nav-links a:hover {
-        background: rgba(148, 163, 184, 0.2);
+        background: var(--nav-bg);
         transform: none;
     }
 
@@ -200,28 +186,23 @@ body {
         width: 100%;
         height: auto;
         border-radius: 0;
-        /* edge to edge */
         font-size: 1.2rem;
         padding: 0.75rem;
         box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
     }
 
     .grid-container {
-        display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        gap: 1rem;
-        padding: 1rem;
         height: auto;
     }
 
     .card img {
         max-height: 300px;
-        /* smaller images on mobile */
     }
 }
 
-/* System Dark Mode */
+/*   System Dark Mode  */
 
 @media (prefers-color-scheme: dark) {
     :root {
